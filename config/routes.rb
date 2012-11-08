@@ -1,4 +1,7 @@
 Ruleof72::Application.routes.draw do
+  root to: "investments#index"
+  resources :investments
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

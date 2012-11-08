@@ -1,0 +1,29 @@
+<h1>Listing investments</h1>
+
+<table>
+  <tr>
+    <th>Principle</th>
+    <th>Int Rate</th>
+    <th>Years</th>
+    <th>Result</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @investments.each do |investment| %>
+  <tr>
+    <td><%= number_to_currency investment.principle %></td>
+    <td><%= number_to_percentage investment.interestrate, precision:1 %></td>
+    <td><%= investment.years %></td>
+    <td><%= number_to_currency investment.result%></td>
+    <td><%= link_to 'Show', investment %></td>
+    <td><%= link_to 'Edit', edit_investment_path(investment) %></td>
+    <td><%= link_to 'Destroy', investment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Investment', new_investment_path %>
